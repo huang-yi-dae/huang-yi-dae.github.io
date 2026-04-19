@@ -6,6 +6,7 @@ share: true
 slug: "convex-sets-euclidean-balls-ellipsoids-norm-cones-and-affine-independence"
 math: true
 ---
+
 ## 1. Euclidean Ball
 
 We can define a **Euclidean ball** in the following equivalent forms:
@@ -13,15 +14,17 @@ We can define a **Euclidean ball** in the following equivalent forms:
 $$
 B(x_c, r) = {x \mid |x - x_c| \le r,; r > 0}
 $$
+
 Equivalently,
 
 $$
 B(x_c, r)
-\left{  
-x ;\middle|;  
-(x - x_c)^T (x - x_c) \le r^2,; r > 0  
-\right}  
+\left{
+x ;\middle|;
+(x - x_c)^T (x - x_c) \le r^2,; r > 0
+\right}
 $$
+
 Also, #
 
 $$
@@ -33,36 +36,53 @@ B(x_c, r) \left{ x_c + ru ;\middle|; |u| \le 1,; r > 0 \right} $
 
 To show that the Euclidean ball is convex, suppose
 
+
 $$
+
 |x_1 - x_c| \le r, \qquad |x_2 - x_c| \le r
+
 $$
 Take any $0 \le \theta \le 1$. Then
 
+
 $$
+
 |\theta x_1 + (1-\theta)x_2 - x_c|
 
-|\theta(x_1 - x_c) + (1-\theta)(x_2 - x_c)|  
+|\theta(x_1 - x_c) + (1-\theta)(x_2 - x_c)|
+
 $$
 By the triangle inequality,
 $$
+
 |\theta(x_1 - x_c) + (1-\theta)(x_2 - x_c)|  
 \le  
-\theta |x_1 - x_c| + (1-\theta)|x_2 - x_c|  
+\theta |x_1 - x_c| + (1-\theta)|x_2 - x_c|
+
 $$
 Since both points lie in the ball, #
 
+
 $$
+
 \theta |x_1 - x_c| + (1-\theta)|x_2 - x_c| \le \theta r + (1-\theta)r r
+
 $$
 Thus,
 
+
 $$
+
 |\theta x_1 + (1-\theta)x_2 - x_c| \le r
+
 $$
 So,
 
+
 $$
+
 \theta x_1 + (1-\theta)x_2 \in B(x_c, r)
+
 $$
 Hence, the Euclidean ball is **convex**.
 
@@ -74,27 +94,38 @@ We can extend the Euclidean ball to a **Euclidean ellipsoid**.
 
 An ellipsoid centered at $x_c$ can be defined as
 
+
 $$
+
 \mathcal{E}
 
 \left{  
 x ;\middle|;  
 (x - x_c)^T P^{-1} (x - x_c) \le r^2  
-\right}  
+\right}
+
 $$
 where
 $$
-P = P^T > 0  
+
+P = P^T > 0
+
 $$
 That is, $P$ is: - **symmetric**, and - **positive definite**. An equivalent representation is #
 
+
 $$
+
 \mathcal{E} \left{ x_c + Au ;\middle|; |u| \le 1 \right}
+
 $$
 where $A$ satisfies
 
+
 $$
+
 P = AA^T
+
 $$
 This shows that an ellipsoid is just a **linear transformation of a Euclidean ball**, shifted by the center $x_c$.
 
@@ -104,8 +135,11 @@ This shows that an ellipsoid is just a **linear transformation of a Euclidean ba
 
 A **norm cone** is defined by
 
+
 $$
+
 {(x,t) \mid |x| \le t}
+
 $$
 This is a standard convex set and often appears in **second-order cone programming (SOCP)**.
 
@@ -115,12 +149,17 @@ This is a standard convex set and often appears in **second-order cone programmi
 
 Given points $v_0, v_1, \dots, v_k$, their **convex hull** is
 
+
 $$
+
 C = \operatorname{conv}{v_0, v_1, \dots, v_k}
+
 $$
 By definition,
 
+
 $$
+
 C
 
 \left{  
@@ -128,31 +167,43 @@ C
 ;\middle|;  
 \mathbf{1}^T \theta = 1,;  
 \theta \ge 0  
-\right}  
+\right}
+
 $$
 where
 $$
-\theta = (\theta_0, \theta_1, \dots, \theta_k)^T  
+
+\theta = (\theta_0, \theta_1, \dots, \theta_k)^T
+
 $$
 and
 $$
-\mathbf{1}^T \theta = \theta_0 + \theta_1 + \cdots + \theta_k = 1  
+
+\mathbf{1}^T \theta = \theta_0 + \theta_1 + \cdots + \theta_k = 1
+
 $$
 So a point $x \in C$ **if and only if**
 $$
-x = \theta_0 v_0 + \theta_1 v_1 + \cdots + \theta_k v_k  
+
+x = \theta_0 v_0 + \theta_1 v_1 + \cdots + \theta_k v_k
+
 $$
 with
 $$
-\theta \ge 0, \qquad \mathbf{1}^T \theta = 1  
+
+\theta \ge 0, \qquad \mathbf{1}^T \theta = 1
+
 $$
 
 ---
 
 # 6. Affine Independence ## Definition Points $v_0, v_1, \dots, v_k \in \mathbb{R}^n$ are said to be **affinely independent** if
 
+
 $$
-v_1 - v_0,; v_2 - v_0,; \dots,; v_k - v_0  
+
+v_1 - v_0,; v_2 - v_0,; \dots,; v_k - v_0
+
 $$
 are **linearly independent**. ---
 
@@ -164,121 +215,177 @@ are **linearly independent**. ---
 
 # 8. Parameterization of the Convex Hull Suppose
 
+
 $$
-x \in C = \operatorname{conv}{v_0, v_1, \dots, v_k}  
+
+x \in C = \operatorname{conv}{v_0, v_1, \dots, v_k}
+
 $$
 Then
 $$
-x = \theta_0 v_0 + \theta_1 v_1 + \cdots + \theta_k v_k  
+
+x = \theta_0 v_0 + \theta_1 v_1 + \cdots + \theta_k v_k
+
 $$
 with
 $$
-\theta \ge 0, \qquad \mathbf{1}^T \theta = 1  
+
+\theta \ge 0, \qquad \mathbf{1}^T \theta = 1
+
 $$
 Since
 $$
-\theta_0 = 1 - \sum_{i=1}^k \theta_i  
+
+\theta*0 = 1 - \sum*{i=1}^k \theta_i
+
 $$
 we can rewrite $x$ using only $\theta_1, \dots, \theta_k$. Let
 $$
-y = (\theta_1, \theta_2, \dots, \theta_k)^T \in \mathbb{R}^k  
+
+y = (\theta_1, \theta_2, \dots, \theta_k)^T \in \mathbb{R}^k
+
 $$
 and define
 $$
-B = [,v_1 - v_0,; v_2 - v_0,; \dots,; v_k - v_0,] \in \mathbb{R}^{n \times k}  
+
+B = [,v_1 - v_0,; v_2 - v_0,; \dots,; v_k - v_0,] \in \mathbb{R}^{n \times k}
+
 $$
 Then we obtain
 $$
-x = v_0 + By  
+
+x = v_0 + By
+
 $$
 This is a very important parameterization. ---
 
 ## Why $B$ Has Full Column Rank If $v_0, v_1, \dots, v_k$ are affinely independent, then
 
+
 $$
-v_1 - v_0,; v_2 - v_0,; \dots,; v_k - v_0  
+
+v_1 - v_0,; v_2 - v_0,; \dots,; v_k - v_0
+
 $$
 are linearly independent. So the matrix
 $$
-B = [,v_1 - v_0,; \dots,; v_k - v_0,]  
+
+B = [,v_1 - v_0,; \dots,; v_k - v_0,]
+
 $$
 has rank $k$. That means:
 $$
-\operatorname{rank}(B) = k  
+
+\operatorname{rank}(B) = k
+
 $$
 So the map
 $$
-x = v_0 + By  
+
+x = v_0 + By
+
 $$
 gives a **nondegenerate coordinate system** on the simplex / convex hull generated by the affinely independent points. Tiny but powerful. ---
 
 # 9. Reformulating Constraints Suppose we have a polyhedron described by
 
+
 $$
-Ax \le b  
+
+Ax \le b
+
 $$
 and we partition $A$ as
 $$
+
 A =  
 \begin{bmatrix}  
 A_1 \  
 A_2  
-\end{bmatrix}  
+\end{bmatrix}
+
 $$
 where: - $A_1 x \le b_1$ corresponds to inequality constraints, - $A_2 x = b_2$ corresponds to equality constraints. Now substitute
 $$
-x = v_0 + By  
+
+x = v_0 + By
+
 $$
 Then the constraints can be rewritten in terms of $y$. ---
 
 ## Equality Constraints If the points $v_0, \dots, v_k$ lie in the same affine set satisfying the equality constraints, then
 
+
 $$
-A_2 x = A_2 v_0  
+
+A_2 x = A_2 v_0
+
 $$
 So
 $$
-A_2(v_0 + By) = A_2 v_0  
+
+A_2(v_0 + By) = A_2 v_0
+
 $$
 which implies
 $$
-A_2 B y = 0  
+
+A_2 B y = 0
+
 $$
 and therefore
 $$
-A_2 x = A_2 v_0  
+
+A_2 x = A_2 v_0
+
 $$
 
 ---
 
 ## Convex Combination Constraints in Terms of $y$ Recall that
 
+
 $$
-y = (\theta_1, \dots, \theta_k)^T  
+
+y = (\theta_1, \dots, \theta_k)^T
+
 $$
 and
 $$
-\theta_0 = 1 - \mathbf{1}^T y  
+
+\theta_0 = 1 - \mathbf{1}^T y
+
 $$
 Since all coefficients must be nonnegative, we need: ### (1) Nonnegativity of $\theta_i$ for $i=1,\dots,k$
 
+
 $$
-y \ge 0  
+
+y \ge 0
+
 $$
 
 ### (2) Nonnegativity of $\theta_0$
 
+
 $$
-1 - \mathbf{1}^T y \ge 0  
+
+1 - \mathbf{1}^T y \ge 0
+
 $$
 that is,
 $$
-\mathbf{1}^T y \le 1  
+
+\mathbf{1}^T y \le 1
+
 $$
 So the convex hull can also be written as #
 
+
 $$
+
 C \left{ x = v_0 + By ;\middle|; y \ge 0,; \mathbf{1}^T y \le 1 \right}
+
 $$
 This is the standard **simplex-coordinate representation**.
 
@@ -288,22 +395,30 @@ This is the standard **simplex-coordinate representation**.
 
 ## Euclidean Ball
 
+
 $$
+
 B(x_c, r) = {x \mid |x - x_c| \le r}
+
 $$
 Equivalent forms:
 
+
 $$
+
 B(x_c, r)
 
 \left{  
 x \mid (x-x_c)^T(x-x_c)\le r^2  
-\right}  
+\right}
+
 $$
 
 #
 
+
 $$
+
 B(x_c, r) \left{ x_c + ru \mid |u|\le 1 \right} $
 
 ---
@@ -313,16 +428,18 @@ B(x_c, r) \left{ x_c + ru \mid |u|\le 1 \right} $
 $$
 \mathcal{E}
 
-\left{  
-x \mid (x-x_c)^T P^{-1}(x-x_c)\le r^2  
-\right},  
-\qquad P=P^T>0  
+\left{
+x \mid (x-x_c)^T P^{-1}(x-x_c)\le r^2
+\right},
+\qquad P=P^T>0
 $$
+
 Equivalent form: #
 
 $$
 \mathcal{E} \left{ x_c + Au \mid |u|\le 1 \right}
 $$
+
 with
 
 $$
@@ -332,7 +449,9 @@ P = AA^T $
 
 ## Norm Cone
 
+
 $$
+
 {(x,t)\mid |x|\le t} $
 
 ---
@@ -342,12 +461,12 @@ $$
 $$
 \operatorname{conv}{v_0,\dots,v_k}
 
-\left{  
-\sum_{i=0}^k \theta_i v_i  
-;\middle|;  
-\theta \ge 0,;  
-\mathbf{1}^T\theta = 1  
-\right}  
+\left{
+\sum_{i=0}^k \theta_i v_i
+;\middle|;
+\theta \ge 0,;
+\mathbf{1}^T\theta = 1
+\right}
 $$
 
 ---
@@ -355,31 +474,37 @@ $$
 ## Affine Independence Points $v_0,\dots,v_k$ are affinely independent iff
 
 $$
-v_1-v_0,;v_2-v_0,;\dots,;v_k-v_0  
+v_1-v_0,;v_2-v_0,;\dots,;v_k-v_0
 $$
+
 are linearly independent. ---
 
 ## Coordinate Representation of Convex Hull Let
 
 $$
-B = [,v_1-v_0,\dots,v_k-v_0,], \qquad y=(\theta_1,\dots,\theta_k)^T  
+B = [,v_1-v_0,\dots,v_k-v_0,], \qquad y=(\theta_1,\dots,\theta_k)^T
 $$
+
 Then
+
 $$
-x = v_0 + By  
+x = v_0 + By
 $$
+
 with constraints
+
 $$
-y \ge 0,\qquad \mathbf{1}^T y \le 1  
+y \ge 0,\qquad \mathbf{1}^T y \le 1
 $$
+
 So #
 
 $$
 \operatorname{conv}{v_0,\dots,v_k}
 $$
+
 $$
 \left{
-v_0 + By \mid y\ge 0; \mathbf{1}^T y \le 1  
-\right}  
+v_0 + By \mid y\ge 0; \mathbf{1}^T y \le 1
+\right}
 $$
-

@@ -11,6 +11,7 @@ categories:
 math: true
 description: "Understanding hyperplanes and halfspaces — the fundamental geometric structures behind classification, separation theorems, and convex optimization"
 ---
+
 ---
 
 # Hyperplanes and Halfspaces — The Geometry of Separation
@@ -39,28 +40,30 @@ $$
 $$
 
 where:
+
 - $a \in \mathbb{R}^n$ is the **normal vector**
 - $b \in \mathbb{R}$ is the **offset** (or bias)
 
 ---
 
-### What is "Nontrivial"? 
+### What is "Nontrivial"?
 
 The "nontrivial" means the coefficients vector $a$ is not the zero vector.
 Mathematically:
 $$a\ne0$$
-where $\mathbf{0} = (0,0,\dots,0)$ . This means at least one coefficient must be non-zero. 
+where $\mathbf{0} = (0,0,\dots,0)$ . This means at least one coefficient must be non-zero.
 
 ---
 
 ### Why "Nontrivial"? Understanding $a \neq 0$
 
-The nontrivial requirement of $a \neq 0$ is essential. 
+The nontrivial requirement of $a \neq 0$ is essential.
 It excludes cases where the equation is either:
+
 - **Identically true** for all x (the whole space $\mathbb{R}^n$)
 - **Never true** for any x (the empty set $\mathbb{\phi}$)
-and ensures we actually get a **meaningful geometric object**, a proper hyperplane  
-— a flat surface of dimension $n-1$.
+  and ensures we actually get a **meaningful geometric object**, a proper hyperplane  
+  — a flat surface of dimension $n-1$.
 
 Let's break down what happens when $a = 0$ corresponding the above two degenerate cases:
 
@@ -84,7 +87,7 @@ The equation $a^T x = b$ has two components:
 
 The normal vector $a$ determines the "tilt" of the hyperplane,
 while $b$ determines its position relative to the origin.
-It's worthy to note that both $a$ and $-a$ determine the same hyperplane 
+It's worthy to note that both $a$ and $-a$ determine the same hyperplane
 (as hyperplane is **unoriented**), but for halfspace, it doesn't.
 
 ---
@@ -92,21 +95,29 @@ It's worthy to note that both $a$ and $-a$ determine the same hyperplane
 ## 2. Alternative Form: The Orthogonality View
 
 There's another way to express the same hyperplane that reveals deeper geometric structure.
+
 ### Reformulation
+
 Pick any point $x_0$ on the hyperplane (so $a^T x_0 = b$). Then:
 
 $$
 a^T x = b \quad \iff \quad a^T(x - x_0) = 0
 $$
+
 ### Geometric Meaning
+
 The condition $a^T(x - x_0) = 0$ says:
-The vector from $x_0$ to any point $x$ on the hyperplane 
+The vector from $x_0$ to any point $x$ on the hyperplane
 is **orthogonal** (perpendicular) to the normal vector $a$.
+
 ### Vector Space Notation
+
 Using orthogonal complement notation, we can write the hyperplane as:
+
 $$
 x_0 + a^\perp
 $$
+
 where $a^\perp = \{v \mid a^T v = 0\}$ is the set of all vectors orthogonal to $a$.
 **Interpretation:** The hyperplane is the point $x_0$ plus all directions perpendicular to $a$.
 
@@ -125,25 +136,28 @@ Hyperplanes generalize the familiar concepts of lines and planes to any dimensio
 
 ### Key Insight
 
-A hyperplane in $\mathbb{R}^n$ always has dimension $n-1$. 
+A hyperplane in $\mathbb{R}^n$ always has dimension $n-1$.
 It's one dimension "less" than the ambient space.
 
 ---
+
 ## 4. Halfspaces: One Side of the Hyperplane
 
-A hyperplane is like a wall in a room ($\mathbb{R}^n$) and 
+A hyperplane is like a wall in a room ($\mathbb{R}^n$) and
 it divides the room into two parts ---- **halfspaces**.
+
 ### Definition
+
 Given a hyperplane $a^T x = b$ with $a \neq 0$:
 
 | Halfspace                                 | Notation                 | Description                                  |
 | ----------------------------------------- | ------------------------ | -------------------------------------------- |
 | **Closed halfspace** <br>($-a$ direction) | $\{x \mid a^T x \le b\}$ | Points on one side, including boundary       |
 | **Closed halfspace** <br>($+a$ direction) | $\{x \mid a^T x \ge b\}$ | Points on the other side, including boundary |
+
 The hyperplane itself ($a^T x = b$) is the **boundary** shared by both halfspaces.
 
 ### Visual Intuition
-
 
 <figure style="text-align: center;">
 <pre style="display: inline-block; text-align: left; font-family: monospace; padding: 20px; line-height: 1.2; border: none; background: transparent; margin: 0;">
@@ -164,8 +178,8 @@ The hyperplane itself ($a^T x = b$) is the **boundary** shared by both halfspace
 </figure>
 A hyperplane $a^T x = b$ separates space into two closed halfspaces. The normal vector $a$ points toward the halfspace where $a^T x \ge b$.
 
-
 ---
+
 ### Open vs. Closed Halfspaces
 
 | Type                 | Definition               | Includes Boundary? |
@@ -181,8 +195,6 @@ In optimization, we typically work with **closed halfspaces** because they conta
 
 In the Visual Intuition subsection, we could see the direction vector always points outward.
 We are going to dive little deep into it and explain why.
-
-
 
 Take a point $x$ on the hyperplane ($a^T x = b$) and move in direction $a$:
 
@@ -201,6 +213,7 @@ So moving in direction $a$ takes us into the $\ge$ halfspace.
 **Key takeaway:** The normal vector $a$ points toward the **positive halfspace** $\{x \mid a^T x \ge b\}$.
 
 ---
+
 ## 6. Hyperplanes as Affine Sets
 
 Hyperplanes are a special case of affine sets.
@@ -233,10 +246,10 @@ So the affine combination stays on the hyperplane.
 
 A hyperplane in $\mathbb{R}^n$ has **affine dimension $n-1$**.
 
-| Space | Hyperplane Dimension |
-|-------|---------------------|
-| $\mathbb{R}^2$ | Line (dimension 1) |
-| $\mathbb{R}^3$ | Plane (dimension 2) |
+| Space          | Hyperplane Dimension     |
+| -------------- | ------------------------ |
+| $\mathbb{R}^2$ | Line (dimension 1)       |
+| $\mathbb{R}^3$ | Plane (dimension 2)      |
 | $\mathbb{R}^n$ | $(n-1)$-dimensional flat |
 
 ---
@@ -271,10 +284,10 @@ So $\theta x_1 + (1-\theta)x_2 \in H$, proving convexity.
 
 ### Important Distinction
 
-| Set Type | Convex? | Affine? |
-|----------|---------|---------|
-| Hyperplane | ✓ Yes | ✓ Yes |
-| Halfspace | ✓ Yes | ✗ No |
+| Set Type   | Convex? | Affine? |
+| ---------- | ------- | ------- |
+| Hyperplane | ✓ Yes   | ✓ Yes   |
+| Halfspace  | ✓ Yes   | ✗ No    |
 
 Halfspaces are convex but **not affine** — they don't contain entire lines, only line segments.
 
@@ -293,6 +306,7 @@ P = \{x \mid Ax \le b,\ Cx = d\}
 $$
 
 where:
+
 - $Ax \le b$ represents multiple halfspace constraints
 - $Cx = d$ represents multiple hyperplane constraints
 
@@ -313,6 +327,7 @@ The core idea of SVM is finding the **optimal separating hyperplane**:
 $$
 \text{Find } a, b \text{ such that:}
 $$
+
 $$
 \begin{cases}
 a^T x_i \ge b + 1 & \text{if } y_i = +1 \\
@@ -346,6 +361,7 @@ A fundamental result in convex analysis:
 > **Separating Hyperplane Theorem**: If $C$ and $D$ are disjoint convex sets, there exists a hyperplane that separates them.
 
 This theorem underlies:
+
 - Duality theory in optimization
 - Existence of classifiers
 - Farkas' lemma in linear programming
@@ -354,11 +370,11 @@ This theorem underlies:
 
 ## 10. Summary Table
 
-| Concept | Definition | Dimension | Convex? | Affine? |
-|---------|------------|-----------|---------|---------|
-| **Hyperplane** | $\{x \mid a^T x = b\},\ a \neq 0$ | $n-1$ | ✓ Yes | ✓ Yes |
-| **Closed Halfspace** | $\{x \mid a^T x \le b\},\ a \neq 0$ | $n$ | ✓ Yes | ✗ No |
-| **Open Halfspace** | $\{x \mid a^T x < b\},\ a \neq 0$ | $n$ | ✓ Yes | ✗ No |
+| Concept              | Definition                          | Dimension | Convex? | Affine? |
+| -------------------- | ----------------------------------- | --------- | ------- | ------- |
+| **Hyperplane**       | $\{x \mid a^T x = b\},\ a \neq 0$   | $n-1$     | ✓ Yes   | ✓ Yes   |
+| **Closed Halfspace** | $\{x \mid a^T x \le b\},\ a \neq 0$ | $n$       | ✓ Yes   | ✗ No    |
+| **Open Halfspace**   | $\{x \mid a^T x < b\},\ a \neq 0$   | $n$       | ✓ Yes   | ✗ No    |
 
 ---
 

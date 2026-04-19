@@ -4,16 +4,17 @@ date: 2026-02-24T23:27:56+08:00
 draft: false
 share: true
 ---
+
 Hi, I'm Huang Yi.
 
 This is my digital garden — a place where I document what I learn, build, and think about.
 
 ## What you'll find here
 
-- Programming and Learning notes   
-- AI and systems learning journey  
-- Refactoring my thinking and learning methods  
-- Essays on technology, growth, and deep work  
+- Programming and Learning notes
+- AI and systems learning journey
+- Refactoring my thinking and learning methods
+- Essays on technology, growth, and deep work
 
 ## Why this blog exists
 
@@ -28,7 +29,7 @@ but a living record of my own experiences and progress.
 
 - Learning Machine-Learning and CS basis
 - Reading different to build up my thinking system
-- Becoming a better thinker  and not letting-self-down one 
+- Becoming a better thinker and not letting-self-down one
 
 ---
 

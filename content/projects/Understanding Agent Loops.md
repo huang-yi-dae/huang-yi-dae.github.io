@@ -15,7 +15,7 @@ summary: "A cleaned-up blog version of my notes on how a minimal agent loop work
 # Understanding Agent Loops
 
 When I first looked at a minimal `agent_loop` implementation, what I wanted was not a polished framework explanation.
-I wanted to understand what the file was *actually doing*.
+I wanted to understand what the file was _actually doing_.
 
 This post is my cleaned-up understanding of that file.
 I keep the original way I reasoned through it, but I reorganize it into a more standard blog structure so the whole picture is easier to follow.
@@ -204,7 +204,7 @@ This is the key distinction:
 - one user input may create many model-tool rounds
 - so one user turn is not always one model call
 
-That is why this is called an *agent loop* rather than a single completion call.
+That is why this is called an _agent loop_ rather than a single completion call.
 A single request may go like this:
 
 1. send messages to the model

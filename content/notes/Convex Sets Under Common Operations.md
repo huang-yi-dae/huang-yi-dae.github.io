@@ -14,6 +14,7 @@ aliases:
   - Convexity Under Operations
   - 凸集在常见操作下的保持性
 ---
+
 # Convex Sets Under Common Operations
 
 One of the most useful habits in convex optimization is this:
@@ -72,9 +73,9 @@ A **polyhedron** can be viewed as the intersection of finitely many halfspaces a
 
 So rather than proving directly that a polyhedron is convex, we can simply say:
 
-1. halfspaces are convex  
-2. hyperplanes are convex  
-3. intersection preserves convexity  
+1. halfspaces are convex
+2. hyperplanes are convex
+3. intersection preserves convexity
 
 Therefore, polyhedra are convex.
 
@@ -92,7 +93,7 @@ $$
 
 This includes many familiar transformations:
 
-- **scaling**  
+- **scaling**
 - **translation**
 - **projection**
 - coordinate selection

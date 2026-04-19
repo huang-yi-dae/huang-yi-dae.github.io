@@ -13,29 +13,29 @@ description: "Understanding Lagrange duality from geometric intuition to the dua
 
 ---
 
-# Where the Name *Lagrange Duality* Comes From
+# Where the Name _Lagrange Duality_ Comes From
 
 ## Overview
 
 Many optimization problems in machine learning involve **constraints**.
 Examples include:
 
-* margin constraints in Support Vector Machines
-* probability simplex constraints
-* regularization constraints
+- margin constraints in Support Vector Machines
+- probability simplex constraints
+- regularization constraints
 
 A powerful framework for handling these problems is **Lagrange duality**.
 
 Conceptually, Lagrange duality does two key things:
 
-1. **Incorporates constraints into the objective function** using *Lagrange multipliers*
-2. **Constructs a new optimization problem** (the *dual problem*) by exchanging minimization and maximization
+1. **Incorporates constraints into the objective function** using _Lagrange multipliers_
+2. **Constructs a new optimization problem** (the _dual problem_) by exchanging minimization and maximization
 
 The dual formulation is often useful because it may
 
-* be **easier to solve**
-* reveal **hidden structure** in the problem
-* enable techniques such as the **kernel trick** in SVMs
+- be **easier to solve**
+- reveal **hidden structure** in the problem
+- enable techniques such as the **kernel trick** in SVMs
 
 In this post we gradually build the idea of Lagrange duality:
 
@@ -44,8 +44,6 @@ In this post we gradually build the idea of Lagrange duality:
 3. Dual problem and weak duality
 4. Strong duality and KKT conditions
 5. Example: Support Vector Machines
-
-
 
 ---
 
@@ -63,16 +61,16 @@ $$
 h(w) = 0
 $$
 
-* The constraint defines a **surface**
-* The objective function defines a **landscape**
+- The constraint defines a **surface**
+- The objective function defines a **landscape**
 
 We are searching for the **lowest point of the landscape that lies on the surface**.
 
 A useful analogy is a **valley with a fence**:
 
-* the valley represents the objective function
-* the fence represents the constraint surface
-* we must find the lowest point we can reach **without crossing the fence**
+- the valley represents the objective function
+- the fence represents the constraint surface
+- we must find the lowest point we can reach **without crossing the fence**
 
 At the optimal point ($w^*$), we cannot move along the surface in a direction that decreases $f$.
 
@@ -99,8 +97,8 @@ Joseph-Louis Lagrange.
 
 At the constrained optimum:
 
-* the gradient of the objective cannot point along the feasible surface
-* therefore it must be a **linear combination of constraint gradients**
+- the gradient of the objective cannot point along the feasible surface
+- therefore it must be a **linear combination of constraint gradients**
 
 This is the geometric foundation of the **Lagrangian method**.
 
@@ -110,12 +108,11 @@ This is the geometric foundation of the **Lagrangian method**.
 
 Constrained optimization changes the usual optimality condition:
 
-| Unconstrained         | Constrained                             |
-| --------------------- | --------------------------------------- |
+| Unconstrained          | Constrained                               |
+| ---------------------- | ----------------------------------------- |
 | $$\nabla f(w^\*) = 0$$ | $$\nabla f(w^\*) = \beta \nabla h(w^\*)$$ |
 
 The constraint introduces a **balancing force** represented by the multiplier.
-
 
 ---
 
@@ -149,14 +146,14 @@ where $\rho$ is a large constant.
 
 Interpretation:
 
-* if $h(w)=0$ → no penalty
-* if $h(w)\neq0$ → objective increases
+- if $h(w)=0$ → no penalty
+- if $h(w)\neq0$ → objective increases
 
 However this approach has a problem:
 
-* choosing $\rho$ is difficult
-* small $\rho$ ignores constraints
-* large $\rho$ causes instability
+- choosing $\rho$ is difficult
+- small $\rho$ ignores constraints
+- large $\rho$ causes instability
 
 ---
 
@@ -178,8 +175,8 @@ Instead, it is allowed to adjust automatically during optimization.
 
 The optimization behaves like a **two-player game**:
 
-* $w$ tries to **minimize the objective**
-* the multiplier $\beta$ tries to **increase the objective when constraints are violated**
+- $w$ tries to **minimize the objective**
+- the multiplier $\beta$ tries to **increase the objective when constraints are violated**
 
 This dynamic adjustment enforces feasibility automatically.
 
@@ -201,9 +198,8 @@ where $\beta$ is called a **Lagrange multiplier**.
 
 The Lagrangian converts a constrained problem into a form where
 
-* constraints become **penalty terms**
-* multipliers control **penalty strength**
-
+- constraints become **penalty terms**
+- multipliers control **penalty strength**
 
 ---
 
@@ -243,8 +239,8 @@ $$
 
 For inequality constraints:
 
-* if $g_i(w) > 0$ (violation) → $\alpha_i g_i(w) > 0$ increases the objective
-* if $g_i(w) < 0$ → increasing $\alpha_i$ would decrease the objective, so optimal $\alpha_i = 0$
+- if $g_i(w) > 0$ (violation) → $\alpha_i g_i(w) > 0$ increases the objective
+- if $g_i(w) < 0$ → increasing $\alpha_i$ would decrease the objective, so optimal $\alpha_i = 0$
 
 Therefore **only active constraints can have positive multipliers**.
 
@@ -256,11 +252,10 @@ This idea will later appear as **complementary slackness**.
 
 The Lagrangian incorporates constraints using multipliers:
 
-| Constraint     | Multiplier               |
-| -------------- | ------------------------ |
+| Constraint   | Multiplier             |
+| ------------ | ---------------------- |
 | $g_i(w)\le0$ | $\alpha_i\ge0$         |
 | $h_i(w)=0$   | $\beta_i$ unrestricted |
-
 
 ---
 
@@ -332,7 +327,6 @@ This property is called **weak duality**.
 
 Dual optimization searches for the **tightest lower bound** on the primal objective.
 
-
 # 5. Strong Duality and KKT Conditions
 
 Sometimes the bound becomes exact:
@@ -345,8 +339,8 @@ This property is called **strong duality**.
 
 A key result from convex optimization states that strong duality holds when
 
-* the problem is **convex**
-* **Slater's condition** holds
+- the problem is **convex**
+- **Slater's condition** holds
 
 Slater's condition requires a strictly feasible point:
 
@@ -402,7 +396,6 @@ Thus **only active constraints influence the solution**.
 ### Section Summary
 
 KKT conditions connect the primal and dual problems and characterize optimal solutions.
-
 
 # 6. Example: Support Vector Machines
 
@@ -462,8 +455,8 @@ $$
 
 Thus
 
-* if $y_i(w^Tx_i+b) >1$ → $\alpha_i=0$
-* if $\alpha_i>0$ → point lies exactly on the margin
+- if $y_i(w^Tx_i+b) >1$ → $\alpha_i=0$
+- if $\alpha_i>0$ → point lies exactly on the margin
 
 These points are called **support vectors**.
 
@@ -497,11 +490,9 @@ This allows nonlinear decision boundaries.
 
 The SVM example shows how
 
-* duality simplifies optimization
-* KKT reveals sparsity
-* kernels enable nonlinear models
-
-
+- duality simplifies optimization
+- KKT reveals sparsity
+- kernels enable nonlinear models
 
 # Conclusion
 
@@ -509,11 +500,11 @@ Lagrange duality provides a unified framework for solving constrained optimizati
 
 The key ideas are:
 
-* **Lagrange multipliers** convert constraints into penalties
-* the **dual problem** provides lower bounds on the optimal value
-* **weak duality** guarantees the bound
-* **strong duality** makes the bound exact
-* **KKT conditions** characterize optimal solutions
+- **Lagrange multipliers** convert constraints into penalties
+- the **dual problem** provides lower bounds on the optimal value
+- **weak duality** guarantees the bound
+- **strong duality** makes the bound exact
+- **KKT conditions** characterize optimal solutions
 
 In machine learning, these ideas appear frequently, from support vector machines to modern convex optimization algorithms.
 
